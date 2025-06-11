@@ -1,0 +1,302 @@
+// =====================
+// Variables
+// =====================
+$color-principal: #000;
+$color-secundario: #fff;
+$color-acento: #f1f1f1;
+$color-borde: #ddd;
+$color-footer: #fff;
+$radius-principal: 10px;
+$radius-secundario: 5px;
+$shadow-principal: 0 4px 8px rgba(0, 0, 0, 0.1);
+$transition-fast: 0.2s;
+$transition-slow: 0.5s;
+
+// =====================
+// Mixins
+// =====================
+@mixin flex-center($direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+@mixin button-style($bg: $color-secundario, $color: $color-principal) {
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: $radius-principal;
+  border: none;
+  background-color: $bg;
+  color: $color;
+  transition: background-color $transition-fast, color $transition-fast, transform $transition-fast;
+  &:hover {
+    background-color: darken($bg, 10%);
+    color: lighten($color, 20%);
+    transform: scale(1.05);
+  }
+}
+
+// =====================
+// Extends
+// =====================
+%box-shadow {
+  box-shadow: $shadow-principal;
+}
+
+// =====================
+// Global y Header
+// =====================
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 70px;
+}
+
+header {
+  background-color: $color-principal;
+  border-radius: $radius-principal;
+  padding: 0.75rem 80px;
+}
+
+.boton_izq,
+.boton_der {
+  @include flex-center(row, 20px);
+}
+
+.titulo_signo {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: $color-secundario;
+}
+
+// =====================
+// Botones Globales
+// =====================
+button {
+  @include button-style($color-secundario, $color-principal);
+}
+
+// =====================
+// Imágenes y Secciones Generales
+// =====================
+.img_principal {
+  text-align: center;
+  max-height: 500px;
+  width: auto;
+  margin-bottom: 100px;
+  transition: transform $transition-slow;
+  &:hover {
+    transform: scale(1.03) rotate(-2deg);
+  }
+}
+
+.marca {
+  text-align: center;
+  border: none;
+}
+
+.contenedor {
+  @include flex-center(row, 0);
+  justify-content: space-around;
+}
+
+.img_secundarias {
+  width: 300px;
+  height: auto;
+  justify-content: space-around;
+}
+
+// =====================
+// Footer
+// =====================
+.footer {
+  @include flex-center(row, 0);
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: $color-footer;
+  color: $color-secundario;
+  width: 100%;
+  .footer-contactos, .footer-titulo, .footer-arrepentimiento {
+    flex: 1;
+  }
+  .footer-titulo {
+    text-align: center;
+  }
+  .footer-arrepentimiento {
+    text-align: right;
+  }
+  button {
+    @include button-style($color-footer, $color-principal);
+    border-radius: $radius-secundario;
+    font-size: 16px;
+  }
+}
+
+// =====================
+// Página Log in
+// =====================
+.body-login {
+  background-image: url('/img/signo_login.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.header_login {
+  padding-bottom: 0;
+}
+
+.main_login {
+  text-align: center;
+  padding-bottom: 400px;
+}
+
+// =====================
+// Enlaces Globales
+// =====================
+a {
+  color: $color-secundario;
+  text-decoration: none;
+  &:visited {
+    color: $color-secundario;
+  }
+  &:hover {
+    color: $color-principal;
+    background: $color-acento;
+    transition: color $transition-fast, background $transition-fast;
+  }
+}
+
+// =====================
+// Página Nosotros
+// =====================
+.main_nosotros {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.info_designer {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background-color: $color-secundario;
+  border: 2px solid #333;
+  border-radius: $radius-principal;
+  @extend %box-shadow;
+  margin: 0 auto;
+  animation: aparecer $transition-slow;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.designer_img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10%;
+  transition: filter $transition-fast;
+  &:hover {
+    filter: grayscale(50%);
+  }
+}
+
+// =====================
+// Página Carrito
+// =====================
+.cart {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: $color-secundario;
+  border: 1px solid #ccc;
+  border-radius: $radius-principal;
+  @extend %box-shadow;
+}
+
+.product {
+  @include flex-center(row, 0);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid $color-borde;
+  border-radius: $radius-secundario;
+  transition: box-shadow $transition-fast;
+  &:hover {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .product-image {
+    width: 150px;
+    height: auto;
+    background-color: #e0e0e0;
+    border-radius: $radius-secundario;
+    margin-right: 15px;
+  }
+  .product-details p {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+.total {
+  @include flex-center(row, 0);
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: $radius-secundario;
+  button {
+    @include button-style($color-principal, $color-secundario);
+    border-radius: $radius-secundario;
+  }
+}
+
+// =====================
+// Página Tienda
+// =====================
+.tienda-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: $color-secundario;
+  border-radius: $radius-principal;
+  @extend %box-shadow;
+  margin-bottom: 40px;
+}
+
+.tienda-product {
+  @include flex-center(column, 0);
+  align-items: center;
+  padding: 15px;
+  border: 1px solid $color-borde;
+  border-radius: $radius-secundario;
+  background-color: $color-acento;
+  text-align: center;
+  transition: transform $transition-fast;
+  &:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
+  .tienda-product-image {
+    width: 150px;
+    height: auto;
+    border-radius: $radius-secundario;
+    margin-bottom: 10px;
+    transition: box-shadow $transition-fast;
+    &:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    }
+  }
+}
