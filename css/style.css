@@ -1,0 +1,268 @@
+/* ===================== */
+/* Global y Header */
+/* ===================== */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* esto empuja el footer hacia abajo */
+}
+header {
+  /* Aunque Bootstrap ya aplica utilidades, aquí mantenemos nuestro fondo y border-radius */
+  background-color: black;
+  border-radius: 10px;
+  /* El padding en el header lo controla Bootstrap (py-3) en la nueva versión; este se puede omitir o ajustar si se desea */
+  padding: 0.75rem 80px;
+}
+
+.boton_izq,
+.boton_der {
+  /* Aunque en la nueva estructura se usan clases de Bootstrap (d-flex, gap-2), en caso de usarlas, aquí se actualiza el gap */
+  display: flex;
+  gap: 20px;
+}
+
+.titulo_signo {
+  text-align: center;
+  font-size: 2rem;  /* Se reduce el tamaño para adaptarse al nuevo header */
+  font-weight: bold;
+  color: white;
+}
+
+/* Aplicamos estilos globales a los botones que no usen las clases de Bootstrap */
+button {
+  padding: 15px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+
+/* ===================== */
+/* Imágenes y Secciones Generales */
+/* ===================== */
+
+.img_principal {
+  text-align: center;
+  max-height: 500px;
+  width: auto;
+  margin-bottom: 100px;
+}
+
+.marca {
+  text-align: center;
+  /* Se quita la propiedad border: 10px para evitar conflictos */
+  border: none;
+}
+
+/* Espaciado general en main (si se desea complementar el padding de Bootstrap) */
+main {
+  padding-top: 70px;
+}
+
+/* Contenedor para secciones que lo requieran (como en la página de Index) */
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img_secundarias {
+  width: 300px;
+  height: auto;
+  justify-content: space-around;
+}
+
+/* ===================== */
+/* Footer */
+/* ===================== */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: rgb(255, 255, 255);
+  color: #fff;
+  width: 100%;
+}
+
+.footer-contactos {
+  flex: 1;
+}
+
+.footer-titulo {
+  flex: 1;
+  text-align: center;
+}
+
+.footer-arrepentimiento {
+  flex: 1;
+  text-align: right;
+}
+
+.footer button {
+  padding: 10px 20px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ===================== */
+/* Estilos Específicos para la Página de Log in */
+/* ===================== */
+
+.body-login {
+  background-image: url('/img/signo_login.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.header_login {
+  padding-bottom: 0;
+}
+
+.main_login {
+  text-align: center;
+  /* El padding-bottom alto puede ajustarse según la necesidad visual */
+  padding-bottom: 400px;
+}
+
+/* ===================== */
+/* Enlaces Globales */
+/* ===================== */
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+/* ===================== */
+/* Estilos para la Página Nosotros */
+/* ===================== */
+
+.main_nosotros {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.info_designer {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.designer_img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10%;
+}
+
+/* ===================== */
+/* Estilos para la Página Carrito */
+/* ===================== */
+
+.cart {
+  width: 60%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.product-image {
+  width: 150px;
+  height: auto;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-right: 15px;
+}
+
+.product-details p {
+  margin: 0;
+  font-size: 20px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.total button {
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ===================== */
+/* Estilos para la Página Tienda */
+/* ===================== */
+
+/* Adaptamos la grilla para que se adecúe al diseño responsivo */
+.tienda-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.tienda-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.tienda-product-image {
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
